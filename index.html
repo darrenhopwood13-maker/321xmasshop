@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>321 Xmas Shop 🎄</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Fredoka One', 'Luckiest Guy', 'Comic Sans MS', 'Chalkboard', cursive, sans-serif;
+            background: #E3F2FD;
+            color: #1A1A1A;
+            line-height: 1.5;
+        }
+
+        /* ===== FALLBACK FONT STACK ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --green: #2E7D32;
+            --red: #E53935;
+            --gold: #FFD700;
+            --yellow: #FFEB3B;
+            --light-blue: #E3F2FD;
+            --dark: #1A1A1A;
+            --white: #FFFFFF;
+            --sold-out: #C62828;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement {
+            background: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--gold);
+        }
+        .announcement span { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--green);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 4px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .logo span { color: var(--gold); }
+        nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        nav a:hover { background: var(--gold); color: var(--dark); transform: scale(1.05); }
+        .cart-icon {
+            background: var(--red);
+            color: var(--white);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .cart-icon:hover { transform: scale(1.05); }
+        #cart-count {
+            background: var(--white);
+            color: var(--dark);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #2E7D32 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.15;
+            font-size: 0.8rem;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+        .hero .sub {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        .hero .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .hero .btn {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.2s;
+            border: 3px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .hero .btn:hover { transform: scale(1.08); background: #C62828; }
+        .hero .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .hero .badges span {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            text-align: center;
+            padding: 30px 10px 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--green);
+        }
+        .section-title span { color: var(--red); }
+
+        /* ===== PRODUCT GRID ===== */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 10px 20px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 2px solid #DDD;
+            position: relative;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .product-card .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            z-index: 2;
+        }
+        .badge-hot { background: var(--red); color: var(--white); }
+        .badge-new { background: var(--green); color: var(--white); }
+        .badge-sale { background: var(--gold); color: var(--dark); }
+        .badge-sold { background: var(--sold-out); color: var(--white); }
+        .badge-bestseller { background: #FFD700; color: var(--dark); }
+
+        .product-card .img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: linear-gradient(135deg, #F5F5F5, #E8E8E8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #999;
+        }
+        .product-card .info {
+            padding: 12px 15px;
+        }
+        .product-card .name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-card .stars {
+            color: var(--gold);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        .product-card .price-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .product-card .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--red);
+        }
+        .product-card .was-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .product-card .deal-badge {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        .product-card .stock {
+            font-size: 0.8rem;
+            color: var(--red);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .product-card .stock.low { color: var(--sold-out); }
+        .product-card .add-btn {
+            width: 100%;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .product-card .add-btn:hover { background: #C62828; }
+        .product-card .add-btn:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        /* ===== OFFER BANNER ===== */
+        .offer-banner {
+            background: linear-gradient(135deg, var(--gold), #FFC107);
+            color: var(--dark);
+            text-align: center;
+            padding: 25px 15px;
+            margin: 20px 0;
+            border-top: 4px solid var(--red);
+            border-bottom: 4px solid var(--red);
+        }
+        .offer-banner h2 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        .offer-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .offer-banner .btn-gold {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid var(--dark);
+        }
+        .offer-banner .btn-gold:hover { transform: scale(1.05); }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            background: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 15px;
+            margin: 20px 0;
+        }
+        .countdown-section h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .countdown-section .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .countdown-section .timer .unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-section .timer .num {
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 10px;
+            min-width: 60px;
+        }
+        .countdown-section .timer .label {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        /* ===== PROMISE BAR ===== */
+        .promises {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .promises .item {
+            background: var(--white);
+            padding: 20px 10px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--gold);
+        }
+        .promises .item .icon { font-size: 2.5rem; }
+        .promises .item h3 { margin: 8px 0; color: var(--green); }
+        .promises .item p { font-size: 0.85rem; color: #555; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--green);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 30px;
+        }
+        footer .logo-sm { font-size: 1.3rem; font-weight: bold; margin-bottom: 8px; }
+        footer p { font-size: 0.85rem; opacity: 0.8; margin-bottom: 5px; }
+        footer .socials { font-size: 1.5rem; letter-spacing: 8px; margin: 10px 0; }
+
+        /* ===== SNOW OVERLAY ===== */
+        .snow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .snowflake {
+            position: absolute;
+            color: var(--white);
+            font-size: 1.2rem;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.7; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+        }
+
+        /* ===== SPIN WHEEL MODAL ===== */
+        .wheel-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .wheel-overlay.show { display: flex; }
+        .wheel-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .wheel-box h2 { font-size: 1.5rem; color: var(--red); }
+        .wheel-box .wheel {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            border: 6px solid var(--gold);
+            margin: 15px auto;
+            background: conic-gradient(#E53935 0deg, #FFD700 90deg, #2E7D32 180deg, #E53935 270deg);
+            transition: transform 3s cubic-bezier(0.2, 0.8, 0.3, 1);
+            position: relative;
+        }
+        .wheel-box .wheel {
+            background: conic-gradient(
+                #E53935 0deg,
+                #2E7D32 60deg,
+                #FFD700 120deg,
+                #E53935 180deg,
+                #2E7D32 240deg,
+                #FFD700 300deg
+            );
+        }
+        .wheel-box .wheel-arrow {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--red);
+            z-index: 2;
+        }
+        .wheel-box .spin-btn {
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .wheel-box .result {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-top: 10px;
+            min-height: 30px;
+        }
+        .wheel-box .close-btn {
+            background: #999;
+            color: var(--white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 700px) {
+            .logo { font-size: 1.3rem; }
+            header { padding: 10px 12px; }
+            nav a { padding: 5px 10px; font-size: 0.75rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1.1rem; }
+            .hero .btn { padding: 10px 25px; font-size: 1rem; }
+            .section-title { font-size: 1.4rem; }
+            .products { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px; }
+            .product-card .price { font-size: 1.1rem; }
+            .promises { grid-template-columns: 1fr; }
+            .countdown-section .timer .num { font-size: 1.8rem; min-width: 40px; }
+            .offer-banner h2 { font-size: 1.4rem; }
+        }
+        @media (max-width: 450px) {
+            .products { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero .sub { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== SNOW ===== -->
+    <div class="snow" id="snow"></div>
+
+    <!-- ===== ANNOUNCEMENT ===== -->
+    <div class="announcement">
+        🎄 <span>FREE UK DELIVERY ON ORDERS OVER £30</span> 🎄 &nbsp;|&nbsp; ⚡ NEW STOCK EVERY MONDAY ⚡
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo" onclick="scrollToTop()">🎄 321<span> XMAS</span> SHOP</div>
+        <nav>
+            <a href="#" onclick="scrollToSection('shop')">🛒 SHOP</a>
+            <a href="#" onclick="scrollToSection('offers')">🔥 DEALS</a>
+            <a href="#" onclick="openWheel()">🎰 SPIN & WIN</a>
+            <div class="cart-icon" onclick="alert('Cart: ' + cart.length + ' items')">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <h1>🎄 321 XMAS SHOP 🎄</h1>
+        <div class="sub">⭐ THE 3-2-1 COUNTDOWN TO CHRISTMAS GIFTS ⭐</div>
+        <div class="tagline">🎁 Stocking Fillers That Don't Suck • All Under £30</div>
+        <a href="#" class="btn" onclick="scrollToSection('shop')">🛒 SHOP NOW — WHILE STOCKS LAST ❗</a>
+        <div class="badges">
+            <span>🔥 NEW DROPS EVERY MONDAY</span>
+            <span>🎁 BUY 3, CHEAPEST FREE</span>
+            <span>🚚 FREE DELIVERY OVER £30</span>
+            <span>⚡ WHEN IT'S GONE, IT'S GONE</span>
+        </div>
+    </section>
+
+    <!-- ===== OFFER BANNER ===== -->
+    <div class="offer-banner" id="offers">
+        <h2>🎁 BUY 3, GET THE CHEAPEST FREE 🎁</h2>
+        <p>Add any 3 items to your cart. The lowest price one is <strong>FREE</strong>. Automatically applied.</p>
+        <p style="margin-top:5px;font-size:0.9rem;">🎰 Or <a href="#" style="color:var(--dark);font-weight:bold;" onclick="openWheel()">SPIN THE WHEEL</a> for a chance at 3 for 1!</p>
+        <a href="#" class="btn-gold" onclick="scrollToSection('shop')">🛒 SHOP THE DEAL</a>
+    </div>
+
+    <!-- ===== COUNTDOWN ===== -->
+    <div class="countdown-section">
+        <h2>⏰ ORDER BY DEC 15 FOR CHRISTMAS DELIVERY 🎄</h2>
+        <div class="timer" id="timer">
+            <div class="unit"><div class="num" id="days">00</div><div class="label">Days</div></div>
+            <div class="unit"><div class="num" id="hours">00</div><div class="label">Hours</div></div>
+            <div class="unit"><div class="num" id="mins">00</div><div class="label">Mins</div></div>
+            <div class="unit"><div class="num" id="secs">00</div><div class="label">Secs</div></div>
+        </div>
+        <p style="margin-top:8px;font-size:0.9rem;">⚠️ Last orders for guaranteed Christmas delivery</p>
+    </div>
+
+    <!-- ===== SECTION: SHOP ===== -->
+    <div class="section-title" id="shop">🎄 <span>SHOP</span> THE COLLECTION 🎄</div>
+    <div class="products" id="product-grid"></div>
+
+    <!-- ===== PROMISES ===== -->
+    <div class="promises">
+        <div class="item">
+            <div class="icon">🎁</div>
+            <h3>Perfect Christmas Gifts</h3>
+            <p>Curated for Christmas, tested for smiles. Every item is a winner.</p>
+        </div>
+        <div class="item">
+            <div class="icon">🚚</div>
+            <h3>Fast UK Delivery</h3>
+            <p>Order by Dec 15 and it's under your tree by the 25th. Free over £30.</p>
+        </div>
+        <div class="item">
+            <div class="icon">🎰</div>
+            <h3>Fun Deals Every Day</h3>
+            <p>Buy 3 cheapest free, or spin the wheel for 3 for 1. Every visit is different.</p>
+        </div>
+    </div>
+
+    <!-- ===== SPIN THE WHEEL MODAL ===== -->
+    <div class="wheel-overlay" id="wheelOverlay">
+        <div class="wheel-box">
+            <h2>🎰 SPIN & WIN! 🎰</h2>
+            <p style="font-size:0.9rem;color:#666;">Win a better deal or pay full price — that's the game!</p>
+            <div style="margin:15px auto;position:relative;">
+                <div id="wheelArrow" style="position:absolute;top:-20px;left:calc(50% - 15px);font-size:2.5rem;color:var(--red);z-index:2;">▼</div>
+                <div class="wheel" id="wheel" style="margin:15px auto;width:200px;height:200px;border-radius:50%;border:6px solid var(--gold);background:conic-gradient(#E53935 0deg, #FFD700 60deg, #2E7D32 120deg, #E53935 180deg, #FFD700 240deg, #2E7D32 300deg);transition:transform 3s cubic-bezier(0.2,0.8,0.3,1);"></div>
+            </div>
+            <button class="spin-btn" onclick="spinWheel()">🎰 SPIN!</button>
+            <div class="result" id="wheelResult"></div>
+            <button class="close-btn" onclick="closeWheel()">Close</button>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="logo-sm">🎄 321 XMAS SHOP 🎄</div>
+        <p>The 3-2-1 Countdown to Christmas Gifts</p>
+        <p>📦 NEW STOCK EVERY WEEK &nbsp;|&nbsp; ⚡ WHEN IT'S GONE, IT'S GONE &nbsp;|&nbsp; 🎰 SPIN TO WIN</p>
+        <div class="socials">📱 📸 🎵</div>
+        <p>© 2026 321 Xmas Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ===== CART =====
+        let cart = JSON.parse(localStorage.getItem('xmas321_cart') || '[]');
+        function updateCartDisplay() {
+            let el = document.getElementById('cart-count');
+            if (el) el.textContent = cart.length;
+            localStorage.setItem('xmas321_cart', JSON.stringify(cart));
+        }
+
+        // ===== PRODUCTS =====
+        const products = [
+            { id:1, name:"Electric Shock Prank Keychain", price:9.99, cat:"stocking", badge:"hot", sales:true, emoji:"⚡", stock:8 },
+            { id:2, name:"Multi-Purpose Foam Cleaner Spray", price:9.99, cat:"stocking", badge:"new", emoji:"🧼", stock:15 },
+            { id:3, name:"Silly Squirrel Stress Relief Keychain", price:9.99, cat:"stocking", badge:"bestseller", emoji:"🐿️", stock:6 },
+            { id:4, name:"Gentle Flow Faucet Filter Bags 90pk", price:9.95, cat:"stocking", badge:"", emoji:"🚰", stock:12 },
+            { id:5, name:"Electric Fly Catcher Bug Zapper", price:14.99, cat:"gadget", badge:"hot", emoji:"🪰", stock:4 },
+            { id:6, name:"Baby Cuddle Hugging Pillow", price:19.99, cat:"gadget", badge:"new", emoji:"🧸", stock:9 },
+            { id:7, name:"4-in-1 Solar Crank Radio", price:24.99, cat:"gadget", badge:"hot", emoji:"📻", stock:5 },
+            { id:8, name:"Water Filter Survival Straw", price:14.99, cat:"survival", badge:"", emoji:"💧", stock:11 },
+            { id:9, name:"Multi-Tool Credit Card", price:9.99, cat:"survival", badge:"bestseller", emoji:"🛠️", stock:20 },
+            { id:10, name:"Car Emergency Kit (10 piece)", price:29.99, cat:"survival", badge:"", emoji:"🚗", stock:7 },
+            { id:11, name:"LED Head Torch Rechargeable", price:12.99, cat:"gadget", badge:"", emoji:"🔦", stock:14 },
+            { id:12, name:"Inflatable Outdoor Air Lounge", price:29.99, cat:"gadget", badge:"sale", emoji:"🛋️", stock:3 }
+        ];
+
+        function renderProducts(filter) {
+            let grid = document.getElementById('product-grid');
+            if (!grid) return;
+            let list = filter ? products.filter(p => p.cat === filter) : products;
+            grid.innerHTML = list.map(p => {
+                let badgeHtml = '';
+                if (p.badge === 'hot') badgeHtml = '<div class="badge badge-hot">🔥 HOT</div>';
+                else if (p.badge === 'new') badgeHtml = '<div class="badge badge-new">🆕 NEW</div>';
+                else if (p.badge === 'bestseller') badgeHtml = '<div class="badge badge-bestseller">⭐ BEST SELLER</div>';
+                else if (p.badge === 'sale') badgeHtml = '<div class="badge badge-sale">⚡ SALE</div>';
+                let stockLabel = p.stock <= 5 ? `<div class="stock low">⚠️ ONLY ${p.stock} LEFT</div>` : `<div class="stock">📦 ${p.stock} in stock</div>`;
+                let disabled = p.stock <= 0 ? 'disabled' : '';
+                let sold = p.stock <= 0 ? '<div class="badge badge-sold">SOLD OUT</div>' : '';
+                return `<div class="product-card">
+                    ${badgeHtml}${sold}
+                    <div class="img" style="font-size:4rem;">${p.emoji}</div>
+                    <div class="info">
+                        <div class="name">${p.name}</div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <div class="price-row">
+                            <span class="price">£${p.price.toFixed(2)}</span>
+                            <span class="deal-badge">🆓 Buy 3, Free</span>
+                        </div>
+                        ${stockLabel}
+                        <button class="add-btn" onclick="addToCart(${p.id},'${p.name.replace("'","\\'")}',${p.price})" ${disabled}>🛒 Add to Cart</button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function addToCart(id, name, price) {
+            cart.push({id, name, price});
+            updateCartDisplay();
+            alert('✅ ' + name + ' added to cart!\n🛒 Buy 3 and the cheapest is FREE!');
+        }
+
+        // ===== COUNTDOWN TIMER =====
+        function updateTimer() {
+            const deadline = new Date('2026-12-15T23:59:59').getTime();
+            const now = new Date().getTime();
+            const diff = Math.max(0, deadline - now);
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            ['days','hours','mins','secs'].forEach((id,i)=>{
+                let el = document.getElementById(id);
+                if(!el) return;
+                el.textContent = [String(d).padStart(2,'0'), String(h).padStart(2,'0'), String(m).padStart(2,'0'), String(s).padStart(2,'0')][i];
+            });
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // ===== WHEEL =====
+        let wheelSpinning = false;
+        function openWheel() {
+            document.getElementById('wheelOverlay').classList.add('show');
+            document.getElementById('wheelResult').textContent = '';
+            document.getElementById('wheel').style.transform = 'rotate(0deg)';
+        }
+        function closeWheel() {
+            document.getElementById('wheelOverlay').classList.remove('show');
+        }
+        function spinWheel() {
+            if (wheelSpinning) return;
+            wheelSpinning = true;
+            const prizes = [
+                { label: '🏆 JACKPOT! 3 for 1! 🏆', chance: 0.05 },
+                { label: '🎉 2 Cheapest FREE! 🎉', chance: 0.10 },
+                { label: '👍 Cheapest FREE (standard deal)', chance: 0.50 },
+                { label: '💀 Bad luck! Pay for all 3', chance: 0.35 }
+            ];
+            const r = Math.random();
+            let cumulative = 0, won = prizes[3];
+            for (let p of prizes) {
+                cumulative += p.chance;
+                if (r < cumulative) { won = p; break; }
+            }
+            const deg = 360 * 3 + Math.random() * 360;
+            document.getElementById('wheel').style.transform = 'rotate(' + deg + 'deg)';
+            setTimeout(() => {
+                document.getElementById('wheelResult').textContent = won.label;
+                wheelSpinning = false;
+            }, 3000);
+        }
+        // close wheel on overlay click
+        document.getElementById('wheelOverlay')?.addEventListener('click', function(e){
+            if(e.target === this) closeWheel();
+        });
+
+        // ===== SCROLL HELPERS =====
+        function scrollToSection(id) {
+            let el = document.getElementById(id);
+            if (el) el.scrollIntoView({behavior:'smooth'});
+        }
+        function scrollToTop() {
+            window.scrollTo({top:0,behavior:'smooth'});
+        }
+
+        // ===== SNOW =====
+        function initSnow() {
+            const container = document.getElementById('snow');
+            if (!container) return;
+            const flakes = ['❄️','❄','❄️','❄','⛄'];
+            for (let i = 0; i < 50; i++) {
+                const f = document.createElement('div');
+                f.className = 'snowflake';
+                f.style.left = Math.random() * 100 + '%';
+                f.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+                f.style.animationDuration = (8 + Math.random() * 15) + 's';
+                f.style.animationDelay = (Math.random() * 10) + 's';
+                f.style.opacity = 0.3 + Math.random() * 0.5;
+                f.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+                container.appendChild(f);
+            }
+        }
+        initSnow();
+
+        // ===== INIT =====
+        renderProducts();
+        updateCartDisplay();
+
+        // ===== OVERRIDE CSS FOR WHEEL =====
+        // Inject conic-gradient fallback for wheel as solid BG (browsers may not support)
+        document.querySelector('.wheel')?.style.setProperty('background', 'conic-gradient(#E53935 0deg, #FFD700 60deg, #2E7D32 120deg, #E53935 180deg, #FFD700 240deg, #2E7D32 300deg)');
+        // If conic-gradient not supported, use solid gold
+        setTimeout(() => {
+            let w = document.querySelector('.wheel');
+            if (w && getComputedStyle(w).background === 'none') {
+                w.style.background = 'conic-gradient(gold, gold, gold, gold, gold, gold)';
+                w.style.backgroundColor = '#FFD700';
+            }
+        }, 100);
+    </script>
+</body>
+</html>
