@@ -531,25 +531,34 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
-        <h1>🎄 321 XMAS SHOP 🎄</h1>
-        <div class="sub">⭐ THE 3-2-1 COUNTDOWN TO CHRISTMAS GIFTS ⭐</div>
-        <div class="tagline">🎁 Stocking Fillers That Don't Suck • All Under £30</div>
-        <a href="#" class="btn" onclick="scrollToSection('shop')">🛒 SHOP NOW — WHILE STOCKS LAST ❗</a>
-        <div class="badges">
-            <span>🔥 NEW DROPS EVERY MONDAY</span>
-            <span>🎁 BUY 3, CHEAPEST FREE</span>
-            <span>🚚 FREE DELIVERY OVER £30</span>
-            <span>⚡ WHEN IT'S GONE, IT'S GONE</span>
+    <section class="hero" style="background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #2E7D32 100%); color: var(--white); text-align: center; padding: 50px 20px 40px; position: relative; overflow: hidden;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image:url('https://v3b.fal.media/files/b/0ab06340/jD9I0GR3nFnTrQA0nIpC-_dYBcxbL8.png'); background-size:cover; background-position:center; opacity:0.35;"></div>
+        <div style="position:relative; z-index:2;">
+            <h1 style="font-size:3.2rem; letter-spacing:3px; margin-bottom:5px; text-shadow:3px 3px 0 var(--red); color:var(--gold);">🎄 321 XMAS SHOP 🎄</h1>
+            <div class="sub">⭐ THE 3-2-1 COUNTDOWN TO CHRISTMAS GIFTS ⭐</div>
+            <div class="tagline">🎁 Stocking Fillers That Don't Suck • All Under £30</div>
+            <a href="#" class="btn" onclick="scrollToSection('shop')">🛒 SHOP NOW — WHILE STOCKS LAST ❗</a>
+            <div class="badges">
+                <span>🔥 NEW DROPS EVERY MONDAY</span>
+                <span>🎁 BUY 3, CHEAPEST FREE</span>
+                <span>🚚 FREE DELIVERY OVER £30</span>
+                <span>⚡ WHEN IT'S GONE, IT'S GONE</span>
+            </div>
         </div>
     </section>
 
     <!-- ===== OFFER BANNER ===== -->
-    <div class="offer-banner" id="offers">
-        <h2>🎁 BUY 3, GET THE CHEAPEST FREE 🎁</h2>
-        <p>Add any 3 items to your cart. The lowest price one is <strong>FREE</strong>. Automatically applied.</p>
-        <p style="margin-top:5px;font-size:0.9rem;">🎰 Or <a href="#" style="color:var(--dark);font-weight:bold;" onclick="openWheel()">SPIN THE WHEEL</a> for a chance at 3 for 1!</p>
-        <a href="#" class="btn-gold" onclick="scrollToSection('shop')">🛒 SHOP THE DEAL</a>
+    <div class="offer-banner" id="offers" style="background: linear-gradient(135deg, var(--gold), #FFC107); color: var(--dark); text-align: center; padding: 25px 15px; margin: 20px 0; border-top: 4px solid var(--red); border-bottom: 4px solid var(--red); position:relative; overflow:hidden;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap;">
+            <img src="https://v3b.fal.media/files/b/0ab06341/r8tvmMv7ErJc2SP-Isjxs_bEHr8SmE.png" alt="BUY 3 GET CHEAPEST FREE" style="width:160px; max-width:40%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+            <div style="text-align:left;">
+                <h2 style="font-size:1.8rem; margin-bottom:5px;">🎁 BUY 3, GET THE CHEAPEST FREE 🎁</h2>
+                <p style="font-size:1rem; margin-bottom:10px;">Add any 3 items to your cart. The lowest price one is <strong>FREE</strong>. Automatically applied.</p>
+                <p style="margin-top:5px;font-size:0.9rem;">🎰 Or <a href="#" style="color:var(--dark);font-weight:bold;" onclick="openWheel()">SPIN THE WHEEL</a> for a chance at 3 for 1!</p>
+                <a href="#" class="btn-gold" onclick="scrollToSection('shop')">🛒 SHOP THE DEAL</a>
+            </div>
+            <img src="https://v3b.fal.media/files/b/0ab06341/6X1f4FKmyIHk-OGXIkHlR_0NXMU56w.png" alt="WHEN IT'S GONE IT'S GONE" style="width:160px; max-width:40%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        </div>
     </div>
 
     <!-- ===== COUNTDOWN ===== -->
