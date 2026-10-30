@@ -633,18 +633,18 @@
 
         // ===== PRODUCTS =====
         const products = [
-            { id:1, name:"Electric Shock Prank Keychain", price:9.99, cat:"stocking", badge:"hot", sales:true, emoji:"⚡", stock:8 },
-            { id:2, name:"Multi-Purpose Foam Cleaner Spray", price:9.99, cat:"stocking", badge:"new", emoji:"🧼", stock:15 },
-            { id:3, name:"Silly Squirrel Stress Relief Keychain", price:9.99, cat:"stocking", badge:"bestseller", emoji:"🐿️", stock:6 },
-            { id:4, name:"Gentle Flow Faucet Filter Bags 90pk", price:9.95, cat:"stocking", badge:"", emoji:"🚰", stock:12 },
-            { id:5, name:"Electric Fly Catcher Bug Zapper", price:14.99, cat:"gadget", badge:"hot", emoji:"🪰", stock:4 },
-            { id:6, name:"Baby Cuddle Hugging Pillow", price:19.99, cat:"gadget", badge:"new", emoji:"🧸", stock:9 },
-            { id:7, name:"4-in-1 Solar Crank Radio", price:24.99, cat:"gadget", badge:"hot", emoji:"📻", stock:5 },
-            { id:8, name:"Water Filter Survival Straw", price:14.99, cat:"survival", badge:"", emoji:"💧", stock:11 },
-            { id:9, name:"Multi-Tool Credit Card", price:9.99, cat:"survival", badge:"bestseller", emoji:"🛠️", stock:20 },
-            { id:10, name:"Car Emergency Kit (10 piece)", price:29.99, cat:"survival", badge:"", emoji:"🚗", stock:7 },
-            { id:11, name:"LED Head Torch Rechargeable", price:12.99, cat:"gadget", badge:"", emoji:"🔦", stock:14 },
-            { id:12, name:"Inflatable Outdoor Air Lounge", price:29.99, cat:"gadget", badge:"sale", emoji:"🛋️", stock:3 }
+            { id:1, name:"Electric Shock Prank Keychain", price:9.99, cat:"stocking", badge:"hot", sales:true, img:"https://v3b.fal.media/files/b/0ab0636f/KP-RGilqDhA8TZrKbnqzI_0r8Objkp.png", stock:8 },
+            { id:2, name:"Multi-Purpose Foam Cleaner Spray", price:9.99, cat:"stocking", badge:"new", img:"https://v3b.fal.media/files/b/0ab0636f/e1touO26WE0yYRrEHJJDO_mxTJXOqT.png", stock:15 },
+            { id:3, name:"Silly Squirrel Stress Relief Keychain", price:9.99, cat:"stocking", badge:"bestseller", img:"https://v3b.fal.media/files/b/0ab06368/MD-Fo5U3Cu2sQK-0MyNCe_wzIqK1NF.png", stock:6 },
+            { id:4, name:"Gentle Flow Faucet Filter Bags 90pk", price:9.95, cat:"stocking", badge:"", img:"", stock:12 },
+            { id:5, name:"Electric Fly Catcher Bug Zapper", price:14.99, cat:"gadget", badge:"hot", img:"", stock:4 },
+            { id:6, name:"Baby Cuddle Hugging Pillow", price:19.99, cat:"gadget", badge:"new", img:"", stock:9 },
+            { id:7, name:"4-in-1 Solar Crank Radio", price:24.99, cat:"gadget", badge:"hot", img:"", stock:5 },
+            { id:8, name:"Water Filter Survival Straw", price:14.99, cat:"survival", badge:"", img:"", stock:11 },
+            { id:9, name:"Multi-Tool Credit Card", price:9.99, cat:"survival", badge:"bestseller", img:"", stock:20 },
+            { id:10, name:"Car Emergency Kit (10 piece)", price:29.99, cat:"survival", badge:"", img:"", stock:7 },
+            { id:11, name:"LED Head Torch Rechargeable", price:12.99, cat:"gadget", badge:"", img:"", stock:14 },
+            { id:12, name:"Inflatable Outdoor Air Lounge", price:29.99, cat:"gadget", badge:"sale", img:"", stock:3 }
         ];
 
         function renderProducts(filter) {
@@ -662,7 +662,7 @@
                 let sold = p.stock <= 0 ? '<div class="badge badge-sold">SOLD OUT</div>' : '';
                 return `<div class="product-card">
                     ${badgeHtml}${sold}
-                    <div class="img" style="font-size:4rem;">${p.emoji}</div>
+                    <div class="img" style="${p.img ? `background-image:url('${p.img}'); background-size:cover; background-position:center; font-size:4rem;` : 'background: linear-gradient(135deg, #F5F5F5, #E8E8E8); display:flex; align-items:center; justify-content:center; font-size:3rem; color:#999;'}">${p.img ? '' : '🎄'}</div>
                     <div class="info">
                         <div class="name">${p.name}</div>
                         <div class="stars">⭐⭐⭐⭐⭐</div>
