@@ -10,215 +10,224 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Fredoka One', 'Luckiest Guy', 'Comic Sans MS', 'Chalkboard', cursive, sans-serif;
-            background: #E3F2FD;
+            background: #FDF8F0;
             color: #1A1A1A;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-
-        /* ===== FALLBACK FONT STACK ===== */
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-        /* ===== VARIABLES ===== */
         :root {
             --green: #2E7D32;
+            --dark-green: #1B5E20;
             --red: #E53935;
+            --dark-red: #C62828;
             --gold: #FFD700;
-            --yellow: #FFEB3B;
-            --light-blue: #E3F2FD;
+            --cream: #FDF8F0;
             --dark: #1A1A1A;
             --white: #FFFFFF;
-            --sold-out: #C62828;
         }
 
-        /* ===== ANNOUNCEMENT BAR ===== */
+        /* ===== ANNOUNCEMENT ===== */
         .announcement {
-            background: var(--red);
+            background: var(--dark-green);
             color: var(--white);
             text-align: center;
-            padding: 10px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-bottom: 3px solid var(--gold);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
-        .announcement span { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+        .announcement b { color: var(--gold); }
 
         /* ===== HEADER ===== */
         header {
-            background: var(--green);
-            color: var(--white);
-            padding: 15px 20px;
+            background: var(--white);
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            border-bottom: 4px solid var(--gold);
+            border-bottom: 2px solid #EEE;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             cursor: pointer;
+            color: var(--dark-green);
         }
-        .logo span { color: var(--gold); }
+        .logo span { color: var(--red); }
         nav {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
             flex-wrap: wrap;
         }
         nav a {
-            color: var(--white);
+            color: var(--dark);
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 14px;
+            padding: 6px 14px;
             border-radius: 20px;
-            background: rgba(255,255,255,0.15);
             transition: 0.2s;
             font-size: 0.9rem;
         }
-        nav a:hover { background: var(--gold); color: var(--dark); transform: scale(1.05); }
+        nav a:hover { background: #F0F0F0; }
         .cart-icon {
             background: var(--red);
             color: var(--white);
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
         }
-        .cart-icon:hover { transform: scale(1.05); }
+        .cart-icon:hover { background: var(--dark-red); }
         #cart-count {
             background: var(--white);
             color: var(--dark);
             border-radius: 50%;
-            padding: 2px 8px;
+            padding: 1px 7px;
             font-size: 0.8rem;
-            font-weight: bold;
         }
 
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #2E7D32 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 50px 20px 40px;
             position: relative;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            background: var(--dark-green);
         }
-        .hero::before {
-            content: '❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️';
+        .hero-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.15;
-            font-size: 0.8rem;
-            pointer-events: none;
-            overflow: hidden;
+            inset: 0;
+            background-image: url('https://v3b.fal.media/files/b/0ab06369/PBsIykWekUqbKUpYYbdFo_WOj7q9mG.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.45;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 50px 24px;
+            max-width: 800px;
         }
         .hero h1 {
-            font-size: 3rem;
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 0 var(--gold);
+            font-size: 3.2rem;
+            color: var(--gold);
+            text-shadow: 3px 3px 0 var(--red);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
         }
         .hero .sub {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--gold);
+            font-size: 1.3rem;
+            color: var(--white);
             font-weight: bold;
+            margin-bottom: 10px;
         }
         .hero .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 24px;
         }
         .hero .btn {
             display: inline-block;
             background: var(--red);
             color: var(--white);
-            padding: 14px 40px;
+            padding: 15px 44px;
             border-radius: 40px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
-            transition: 0.2s;
             border: 3px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+            transition: 0.2s;
             cursor: pointer;
         }
-        .hero .btn:hover { transform: scale(1.08); background: #C62828; }
-        .hero .badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .hero .badges span {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
+        .hero .btn:hover { transform: scale(1.06); background: var(--dark-red); }
 
-        /* ===== SECTION TITLES ===== */
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 40px 24px 10px;
+        }
         .section-title {
+            font-size: 1.7rem;
+            color: var(--dark-green);
             text-align: center;
-            padding: 30px 10px 10px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--green);
+            margin-bottom: 20px;
         }
         .section-title span { color: var(--red); }
+
+        /* ===== DEAL STRIP (slim, one line) ===== */
+        .deal-strip {
+            background: linear-gradient(90deg, var(--dark-red), var(--red));
+            color: var(--white);
+            text-align: center;
+            padding: 14px 16px;
+            margin: 24px 0 0;
+            font-size: 1rem;
+        }
+        .deal-strip b { color: var(--gold); }
+        .deal-strip a {
+            color: var(--white);
+            text-decoration: underline;
+            font-weight: bold;
+            margin-left: 8px;
+            cursor: pointer;
+        }
 
         /* ===== PRODUCT GRID ===== */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
-            padding: 10px 20px 30px;
-            max-width: 1200px;
+            gap: 22px;
+            padding: 10px 24px 30px;
+            max-width: 1150px;
             margin: 0 auto;
         }
         .product-card {
             background: var(--white);
-            border-radius: 15px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            border: 2px solid #DDD;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+            transition: 0.25s;
+            border: 1px solid #EEE;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
         .product-card .badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 12px;
-            border-radius: 8px;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-weight: bold;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             z-index: 2;
+            letter-spacing: 0.5px;
         }
         .badge-hot { background: var(--red); color: var(--white); }
         .badge-new { background: var(--green); color: var(--white); }
         .badge-sale { background: var(--gold); color: var(--dark); }
-        .badge-sold { background: var(--sold-out); color: var(--white); }
-        .badge-bestseller { background: #FFD700; color: var(--dark); }
-
+        .badge-sold { background: #444; color: var(--white); }
+        .badge-bestseller { background: var(--gold); color: var(--dark); }
         .product-card .img {
             width: 100%;
             aspect-ratio: 1/1;
-            background: linear-gradient(135deg, #F5F5F5, #E8E8E8);
+            background: #F7F7F7;
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -226,194 +235,124 @@
             color: #999;
         }
         .product-card .info {
-            padding: 12px 15px;
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .product-card .name {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            line-height: 1.35;
         }
-        .product-card .stars {
-            color: var(--gold);
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
+        .product-card .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 6px; }
         .product-card .price-row {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
         }
-        .product-card .price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--red);
-        }
-        .product-card .was-price {
-            font-size: 1rem;
-            color: #999;
-            text-decoration: line-through;
-        }
+        .product-card .price { font-size: 1.35rem; font-weight: bold; color: var(--red); }
+        .product-card .was-price { font-size: 0.95rem; color: #999; text-decoration: line-through; }
         .product-card .deal-badge {
-            background: var(--gold);
-            color: var(--dark);
+            background: #FFF3C4;
+            color: #8A6D00;
+            border: 1px solid var(--gold);
             padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
+            border-radius: 6px;
+            font-size: 0.68rem;
             font-weight: bold;
         }
-        .product-card .stock {
-            font-size: 0.8rem;
-            color: var(--red);
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .product-card .stock.low { color: var(--sold-out); }
+        .product-card .stock { font-size: 0.78rem; color: var(--red); font-weight: bold; margin: 4px 0 10px; }
+        .product-card .stock.ok { color: var(--green); }
         .product-card .add-btn {
-            width: 100%;
+            margin-top: auto;
             background: var(--red);
             color: var(--white);
             border: none;
-            padding: 10px;
-            font-size: 1rem;
+            padding: 11px;
+            font-size: 0.95rem;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: 0.2s;
         }
-        .product-card .add-btn:hover { background: #C62828; }
-        .product-card .add-btn:disabled {
-            background: #666;
-            color: #999;
-            cursor: not-allowed;
-        }
+        .product-card .add-btn:hover { background: var(--dark-red); }
+        .product-card .add-btn:disabled { background: #CCC; color: #888; cursor: not-allowed; }
 
-        /* ===== OFFER BANNER ===== */
-        .offer-banner {
-            background: linear-gradient(135deg, var(--gold), #FFC107);
-            color: var(--dark);
-            text-align: center;
-            padding: 25px 15px;
-            margin: 20px 0;
-            border-top: 4px solid var(--red);
-            border-bottom: 4px solid var(--red);
-        }
-        .offer-banner h2 {
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-        }
-        .offer-banner p {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        .offer-banner .btn-gold {
-            display: inline-block;
-            background: var(--red);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 2px solid var(--dark);
-        }
-        .offer-banner .btn-gold:hover { transform: scale(1.05); }
-
-        /* ===== COUNTDOWN ===== */
+        /* ===== COUNTDOWN (slim) ===== */
         .countdown-section {
-            background: var(--red);
+            background: var(--dark-green);
             color: var(--white);
             text-align: center;
-            padding: 25px 15px;
-            margin: 20px 0;
+            padding: 18px 16px;
+            margin: 20px 0 0;
         }
-        .countdown-section h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .countdown-section h2 { font-size: 1.1rem; margin-bottom: 8px; }
         .countdown-section .timer {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .countdown-section .timer .unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 18px;
         }
         .countdown-section .timer .num {
-            font-size: 2.5rem;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 10px;
-            min-width: 60px;
+            font-size: 1.7rem;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 14px;
+            border-radius: 8px;
+            min-width: 52px;
         }
-        .countdown-section .timer .label {
-            font-size: 0.8rem;
-            margin-top: 5px;
-            opacity: 0.8;
-        }
+        .countdown-section .timer .label { font-size: 0.7rem; opacity: 0.8; }
 
-        /* ===== PROMISE BAR ===== */
+        /* ===== PROMISES ===== */
         .promises {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 20px;
+            gap: 16px;
+            padding: 30px 24px;
             max-width: 1000px;
-            margin: 20px auto;
+            margin: 0 auto;
             text-align: center;
         }
-        .promises .item {
-            background: var(--white);
-            padding: 20px 10px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-top: 4px solid var(--gold);
-        }
-        .promises .item .icon { font-size: 2.5rem; }
-        .promises .item h3 { margin: 8px 0; color: var(--green); }
-        .promises .item p { font-size: 0.85rem; color: #555; }
+        .promises .item { padding: 10px; }
+        .promises .icon { font-size: 2.2rem; }
+        .promises h3 { margin: 8px 0 4px; font-size: 1rem; color: var(--dark-green); }
+        .promises p { font-size: 0.85rem; color: #666; }
 
         /* ===== FOOTER ===== */
         footer {
-            background: var(--green);
+            background: var(--dark-green);
             color: var(--white);
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 30px;
+            padding: 28px 16px;
         }
-        footer .logo-sm { font-size: 1.3rem; font-weight: bold; margin-bottom: 8px; }
-        footer p { font-size: 0.85rem; opacity: 0.8; margin-bottom: 5px; }
-        footer .socials { font-size: 1.5rem; letter-spacing: 8px; margin: 10px 0; }
+        footer .logo-sm { font-size: 1.3rem; font-weight: bold; margin-bottom: 6px; }
+        footer p { font-size: 0.82rem; opacity: 0.85; margin-bottom: 4px; }
+        footer .socials { font-size: 1.3rem; letter-spacing: 10px; margin: 10px 0; }
 
-        /* ===== SNOW OVERLAY ===== */
-        .snow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-        }
+        /* ===== SNOW ===== */
+        .snow { position: fixed; inset: 0; pointer-events: none; z-index: 999; }
         .snowflake {
             position: absolute;
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             animation: fall linear infinite;
-            opacity: 0.7;
+            opacity: 0.6;
+            text-shadow: 0 0 4px rgba(0,0,0,0.2);
         }
         @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.7; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.6; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.15; }
         }
 
-        /* ===== SPIN WHEEL MODAL ===== */
+        /* ===== WHEEL MODAL ===== */
         .wheel-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 999;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 1100;
             align-items: center;
             justify-content: center;
         }
@@ -421,109 +360,85 @@
         .wheel-box {
             background: var(--white);
             border-radius: 20px;
-            padding: 20px;
-            max-width: 420px;
-            width: 90%;
+            padding: 24px;
+            max-width: 400px;
+            width: 92%;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 14px 50px rgba(0,0,0,0.4);
         }
-        .wheel-box h2 { font-size: 1.5rem; color: var(--red); }
+        .wheel-box h2 { font-size: 1.4rem; color: var(--red); }
+        .wheel-box .wheel-wrap { position: relative; width: 200px; margin: 16px auto; }
+        .wheel-box .wheel-arrow {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.2rem;
+            color: var(--red);
+            z-index: 2;
+        }
         .wheel-box .wheel {
             width: 200px; height: 200px;
             border-radius: 50%;
             border: 6px solid var(--gold);
-            margin: 15px auto;
-            background: conic-gradient(#E53935 0deg, #FFD700 90deg, #2E7D32 180deg, #E53935 270deg);
-            transition: transform 3s cubic-bezier(0.2, 0.8, 0.3, 1);
-            position: relative;
-        }
-        .wheel-box .wheel {
-            background: conic-gradient(
-                #E53935 0deg,
-                #2E7D32 60deg,
-                #FFD700 120deg,
-                #E53935 180deg,
-                #2E7D32 240deg,
-                #FFD700 300deg
-            );
-        }
-        .wheel-box .wheel-arrow {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            color: var(--red);
-            z-index: 2;
+            background: conic-gradient(#E53935 0deg, #FFD700 60deg, #2E7D32 120deg, #E53935 180deg, #FFD700 240deg, #2E7D32 300deg);
+            transition: transform 3s cubic-bezier(0.2,0.8,0.3,1);
         }
         .wheel-box .spin-btn {
             background: var(--red);
             color: var(--white);
             border: none;
-            padding: 12px 30px;
+            padding: 12px 34px;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            margin: 10px 0;
-        }
-        .wheel-box .result {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--green);
-            margin-top: 10px;
-            min-height: 30px;
+            margin: 10px 8px 6px;
         }
         .wheel-box .close-btn {
-            background: #999;
-            color: var(--white);
+            background: #DDD;
+            color: #555;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 22px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 0.85rem;
-            margin-top: 10px;
         }
+        .wheel-box .result { font-size: 1.2rem; font-weight: bold; color: var(--green); margin: 12px 0 6px; min-height: 28px; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 700px) {
-            .logo { font-size: 1.3rem; }
-            header { padding: 10px 12px; }
+            .logo { font-size: 1.15rem; }
+            header { padding: 10px 14px; }
             nav a { padding: 5px 10px; font-size: 0.75rem; }
+            .hero { min-height: 380px; }
             .hero h1 { font-size: 2rem; }
-            .hero .sub { font-size: 1.1rem; }
-            .hero .btn { padding: 10px 25px; font-size: 1rem; }
-            .section-title { font-size: 1.4rem; }
-            .products { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px; }
-            .product-card .price { font-size: 1.1rem; }
+            .hero .sub { font-size: 1.05rem; }
+            .hero .btn { padding: 12px 28px; font-size: 1rem; }
+            .products { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 14px 24px; }
+            .section { padding: 28px 14px 8px; }
             .promises { grid-template-columns: 1fr; }
-            .countdown-section .timer .num { font-size: 1.8rem; min-width: 40px; }
-            .offer-banner h2 { font-size: 1.4rem; }
+            .deal-strip { font-size: 0.85rem; }
         }
-        @media (max-width: 450px) {
+        @media (max-width: 430px) {
             .products { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.5rem; }
-            .hero .sub { font-size: 0.95rem; }
+            .hero h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== SNOW ===== -->
     <div class="snow" id="snow"></div>
 
-    <!-- ===== ANNOUNCEMENT ===== -->
     <div class="announcement">
-        🎄 <span>FREE UK DELIVERY ON ORDERS OVER £30</span> 🎄 &nbsp;|&nbsp; ⚡ NEW STOCK EVERY MONDAY ⚡
+        🚚 <b>FREE UK DELIVERY</b> on orders over £30 &nbsp;·&nbsp; ⚡ <b>NEW DROPS</b> every Monday
     </div>
 
-    <!-- ===== HEADER ===== -->
     <header>
         <div class="logo" onclick="scrollToTop()">🎄 321<span> XMAS</span> SHOP</div>
         <nav>
-            <a href="#" onclick="scrollToSection('shop')">🛒 SHOP</a>
-            <a href="#" onclick="scrollToSection('offers')">🔥 DEALS</a>
-            <a href="#" onclick="openWheel()">🎰 SPIN & WIN</a>
+            <a href="#" onclick="scrollToSection('shop')">Shop</a>
+            <a href="#" onclick="openWheel()">🎰 Spin & Win</a>
             <div class="cart-icon" onclick="alert('Cart: ' + cart.length + ' items')">
                 🛒 <span id="cart-count">0</span>
             </div>
@@ -531,85 +446,70 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero" style="background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #2E7D32 100%); color: var(--white); text-align: center; padding: 0; position: relative; overflow: hidden;">
-        <div style="position:relative; width:100%; min-height:420px; display:flex; align-items:center; justify-content:center;">
-            <img src="https://v3b.fal.media/files/b/0ab06369/PBsIykWekUqbKUpYYbdFo_WOj7q9mG.png" alt="321 XMAS SHOP Flash Sale" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
-            <div style="position:relative; z-index:2; background:rgba(27,94,32,0.55); padding:40px 20px; width:100%; text-align:center; backdrop-filter:blur(2px);">
-                <h1 style="font-size:3.2rem; letter-spacing:3px; margin-bottom:5px; text-shadow:3px 3px 0 var(--red); color:var(--gold);">🎄 321 XMAS SHOP 🎄</h1>
-                <div class="sub">⭐ THE 3-2-1 COUNTDOWN TO CHRISTMAS GIFTS ⭐</div>
-                <div class="tagline">🎁 Stocking Fillers That Don't Suck • All Under £30</div>
-                <a href="#" class="btn" onclick="scrollToSection('shop')">🛒 SHOP NOW — WHILE STOCKS LAST ❗</a>
-                <div class="badges">
-                    <span>🔥 NEW DROPS EVERY MONDAY</span>
-                    <span>🎁 BUY 3, CHEAPEST FREE</span>
-                    <span>🚚 FREE DELIVERY OVER £30</span>
-                    <span>⚡ WHEN IT'S GONE, IT'S GONE</span>
-                </div>
-            </div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>🎄 321 XMAS SHOP 🎄</h1>
+            <div class="sub">The 3-2-1 Countdown to Christmas Gifts</div>
+            <div class="tagline">Stocking fillers that don't suck · All under £30</div>
+            <a href="#shop" class="btn" onclick="scrollToSection('shop')">🛒 SHOP NOW</a>
         </div>
     </section>
 
-    <!-- ===== OFFER BANNER ===== -->
-    <div class="offer-banner" id="offers" style="background: linear-gradient(135deg, var(--gold), #FFC107); color: var(--dark); text-align: center; padding: 25px 15px; margin: 20px 0; border-top: 4px solid var(--red); border-bottom: 4px solid var(--red); position:relative; overflow:hidden;">
-        <div style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap;">
-            <img src="https://v3b.fal.media/files/b/0ab06341/r8tvmMv7ErJc2SP-Isjxs_bEHr8SmE.png" alt="BUY 3 GET CHEAPEST FREE" style="width:160px; max-width:40%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-            <div style="text-align:left;">
-                <h2 style="font-size:1.8rem; margin-bottom:5px;">🎁 BUY 3, GET THE CHEAPEST FREE 🎁</h2>
-                <p style="font-size:1rem; margin-bottom:10px;">Add any 3 items to your cart. The lowest price one is <strong>FREE</strong>. Automatically applied.</p>
-                <p style="margin-top:5px;font-size:0.9rem;">🎰 Or <a href="#" style="color:var(--dark);font-weight:bold;" onclick="openWheel()">SPIN THE WHEEL</a> for a chance at 3 for 1!</p>
-                <a href="#" class="btn-gold" onclick="scrollToSection('shop')">🛒 SHOP THE DEAL</a>
-            </div>
-            <img src="https://v3b.fal.media/files/b/0ab06341/6X1f4FKmyIHk-OGXIkHlR_0NXMU56w.png" alt="WHEN IT'S GONE IT'S GONE" style="width:160px; max-width:40%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-        </div>
+    <!-- ===== DEAL STRIP ===== -->
+    <div class="deal-strip">
+        🎁 <b>BUY 3, GET THE CHEAPEST ONE FREE</b> — auto-applied at checkout ·
+        <a href="#" onclick="openWheel()">🎰 or spin the wheel for 3 for 1!</a>
     </div>
+
+    <!-- ===== PRODUCTS ===== -->
+    <div class="section" id="shop">
+        <div class="section-title">🎄 <span>SHOP</span> THE COLLECTION 🎄</div>
+    </div>
+    <div class="products" id="product-grid"></div>
 
     <!-- ===== COUNTDOWN ===== -->
     <div class="countdown-section">
-        <h2>⏰ ORDER BY DEC 15 FOR CHRISTMAS DELIVERY 🎄</h2>
+        <h2>⏰ Order by <b>December 15</b> for guaranteed Christmas delivery</h2>
         <div class="timer" id="timer">
-            <div class="unit"><div class="num" id="days">00</div><div class="label">Days</div></div>
-            <div class="unit"><div class="num" id="hours">00</div><div class="label">Hours</div></div>
-            <div class="unit"><div class="num" id="mins">00</div><div class="label">Mins</div></div>
-            <div class="unit"><div class="num" id="secs">00</div><div class="label">Secs</div></div>
+            <div><div class="num" id="days">00</div><div class="label">Days</div></div>
+            <div><div class="num" id="hours">00</div><div class="label">Hours</div></div>
+            <div><div class="num" id="mins">00</div><div class="label">Mins</div></div>
+            <div><div class="num" id="secs">00</div><div class="label">Secs</div></div>
         </div>
-        <p style="margin-top:8px;font-size:0.9rem;">⚠️ Last orders for guaranteed Christmas delivery</p>
     </div>
-
-    <!-- ===== SECTION: SHOP ===== -->
-    <div class="section-title" id="shop">🎄 <span>SHOP</span> THE COLLECTION 🎄</div>
-    <div class="products" id="product-grid"></div>
 
     <!-- ===== PROMISES ===== -->
     <div class="promises">
         <div class="item">
             <div class="icon">🎁</div>
-            <h3>Perfect Christmas Gifts</h3>
-            <p>Curated for Christmas, tested for smiles. Every item is a winner.</p>
+            <h3>Perfect Gifts</h3>
+            <p>Curated for Christmas, tested for smiles.</p>
         </div>
         <div class="item">
             <div class="icon">🚚</div>
             <h3>Fast UK Delivery</h3>
-            <p>Order by Dec 15 and it's under your tree by the 25th. Free over £30.</p>
+            <p>Order by Dec 15, under the tree by the 25th.</p>
         </div>
         <div class="item">
             <div class="icon">🎰</div>
-            <h3>Fun Deals Every Day</h3>
-            <p>Buy 3 cheapest free, or spin the wheel for 3 for 1. Every visit is different.</p>
+            <h3>Fun Deals</h3>
+            <p>Buy 3 cheapest free, or spin for 3 for 1.</p>
         </div>
     </div>
 
-    <!-- ===== SPIN THE WHEEL MODAL ===== -->
+    <!-- ===== WHEEL MODAL ===== -->
     <div class="wheel-overlay" id="wheelOverlay">
         <div class="wheel-box">
             <h2>🎰 SPIN & WIN! 🎰</h2>
-            <p style="font-size:0.9rem;color:#666;">Win a better deal or pay full price — that's the game!</p>
-            <div style="margin:15px auto;position:relative;">
-                <div id="wheelArrow" style="position:absolute;top:-20px;left:calc(50% - 15px);font-size:2.5rem;color:var(--red);z-index:2;">▼</div>
-                <div class="wheel" id="wheel" style="margin:15px auto;width:200px;height:200px;border-radius:50%;border:6px solid var(--gold);background:conic-gradient(#E53935 0deg, #FFD700 60deg, #2E7D32 120deg, #E53935 180deg, #FFD700 240deg, #2E7D32 300deg);transition:transform 3s cubic-bezier(0.2,0.8,0.3,1);"></div>
+            <p style="font-size:0.85rem;color:#666;">Win a better deal — or pay full price. That's the game!</p>
+            <div class="wheel-wrap">
+                <div class="wheel-arrow">▼</div>
+                <div class="wheel" id="wheel"></div>
             </div>
             <button class="spin-btn" onclick="spinWheel()">🎰 SPIN!</button>
-            <div class="result" id="wheelResult"></div>
             <button class="close-btn" onclick="closeWheel()">Close</button>
+            <div class="result" id="wheelResult"></div>
         </div>
     </div>
 
@@ -617,61 +517,71 @@
     <footer>
         <div class="logo-sm">🎄 321 XMAS SHOP 🎄</div>
         <p>The 3-2-1 Countdown to Christmas Gifts</p>
-        <p>📦 NEW STOCK EVERY WEEK &nbsp;|&nbsp; ⚡ WHEN IT'S GONE, IT'S GONE &nbsp;|&nbsp; 🎰 SPIN TO WIN</p>
-        <div class="socials">📱 📸 🎵</div>
-        <p>© 2026 321 Xmas Shop. All rights reserved.</p>
+        <p>📦 New stock every week · ⚡ When it's gone, it's gone · 🎰 Spin to win</p>
+        <div class="socials">📱 🎵</div>
+        <p>© 2026 321 Xmas Shop</p>
     </footer>
 
     <script>
         // ===== CART =====
         let cart = JSON.parse(localStorage.getItem('xmas321_cart') || '[]');
         function updateCartDisplay() {
-            let el = document.getElementById('cart-count');
+            const el = document.getElementById('cart-count');
             if (el) el.textContent = cart.length;
             localStorage.setItem('xmas321_cart', JSON.stringify(cart));
         }
 
         // ===== PRODUCTS =====
         const products = [
-            { id:1, name:"Electric Shock Prank Keychain", price:9.99, cat:"stocking", badge:"hot", sales:true, img:"https://v3b.fal.media/files/b/0ab0636f/KP-RGilqDhA8TZrKbnqzI_0r8Objkp.png", stock:8 },
-            { id:2, name:"Multi-Purpose Foam Cleaner Spray", price:9.99, cat:"stocking", badge:"new", img:"https://v3b.fal.media/files/b/0ab0636f/e1touO26WE0yYRrEHJJDO_mxTJXOqT.png", stock:15 },
-            { id:3, name:"Silly Squirrel Stress Relief Keychain", price:9.99, cat:"stocking", badge:"bestseller", img:"https://v3b.fal.media/files/b/0ab06368/MD-Fo5U3Cu2sQK-0MyNCe_wzIqK1NF.png", stock:6 },
-            { id:4, name:"Gentle Flow Faucet Filter Bags 90pk", price:9.95, cat:"stocking", badge:"", img:"", stock:12 },
-            { id:5, name:"Electric Fly Catcher Bug Zapper", price:14.99, cat:"gadget", badge:"hot", img:"", stock:4 },
-            { id:6, name:"Baby Cuddle Hugging Pillow", price:19.99, cat:"gadget", badge:"new", img:"", stock:9 },
-            { id:7, name:"4-in-1 Solar Crank Radio", price:24.99, cat:"gadget", badge:"hot", img:"", stock:5 },
-            { id:8, name:"Water Filter Survival Straw", price:14.99, cat:"survival", badge:"", img:"", stock:11 },
-            { id:9, name:"Multi-Tool Credit Card", price:9.99, cat:"survival", badge:"bestseller", img:"", stock:20 },
-            { id:10, name:"Car Emergency Kit (10 piece)", price:29.99, cat:"survival", badge:"", img:"", stock:7 },
-            { id:11, name:"LED Head Torch Rechargeable", price:12.99, cat:"gadget", badge:"", img:"", stock:14 },
-            { id:12, name:"Inflatable Outdoor Air Lounge", price:29.99, cat:"gadget", badge:"sale", img:"", stock:3 }
+            { id:1, name:"Electric Shock Prank Keychain", price:9.99, was:14.99, cat:"stocking", badge:"hot", img:"https://v3b.fal.media/files/b/0ab0636f/KP-RGilqDhA8TZrKbnqzI_0r8Objkp.png", stock:8 },
+            { id:2, name:"Multi-Purpose Foam Cleaner Spray", price:9.99, was:12.99, cat:"stocking", badge:"new", img:"https://v3b.fal.media/files/b/0ab0636f/e1touO26WE0yYRrEHJJDO_mxTJXOqT.png", stock:15 },
+            { id:3, name:"Silly Squirrel Stress Relief Keychain", price:9.99, was:0, cat:"stocking", badge:"bestseller", img:"https://v3b.fal.media/files/b/0ab06368/MD-Fo5U3Cu2sQK-0MyNCe_wzIqK1NF.png", stock:6 },
+            { id:4, name:"Gentle Flow Faucet Filter Bags 90pk", price:9.95, was:0, cat:"stocking", badge:"", img:"", stock:12 },
+            { id:5, name:"Electric Fly Catcher Bug Zapper", price:14.99, was:19.99, cat:"gadget", badge:"hot", img:"", stock:4 },
+            { id:6, name:"Baby Cuddle Hugging Pillow", price:19.99, was:0, cat:"gadget", badge:"new", img:"", stock:9 },
+            { id:7, name:"4-in-1 Solar Crank Radio", price:24.99, was:29.99, cat:"gadget", badge:"hot", img:"", stock:5 },
+            { id:8, name:"Water Filter Survival Straw", price:14.99, was:0, cat:"survival", badge:"", img:"", stock:11 },
+            { id:9, name:"Multi-Tool Credit Card", price:9.99, was:0, cat:"survival", badge:"bestseller", img:"", stock:20 },
+            { id:10, name:"Car Emergency Kit (10 piece)", price:29.99, was:39.99, cat:"survival", badge:"", img:"", stock:7 },
+            { id:11, name:"LED Head Torch Rechargeable", price:12.99, was:0, cat:"gadget", badge:"", img:"", stock:14 },
+            { id:12, name:"Inflatable Outdoor Air Lounge", price:29.99, was:44.99, cat:"gadget", badge:"sale", img:"", stock:3 }
         ];
 
-        function renderProducts(filter) {
-            let grid = document.getElementById('product-grid');
+        function badgeHtml(p) {
+            if (p.badge === 'hot') return '<div class="badge badge-hot">🔥 HOT</div>';
+            if (p.badge === 'new') return '<div class="badge badge-new">🆕 NEW</div>';
+            if (p.badge === 'bestseller') return '<div class="badge badge-bestseller">⭐ BEST SELLER</div>';
+            if (p.badge === 'sale') return '<div class="badge badge-sale">⚡ SALE</div>';
+            return '';
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
             if (!grid) return;
-            let list = filter ? products.filter(p => p.cat === filter) : products;
-            grid.innerHTML = list.map(p => {
-                let badgeHtml = '';
-                if (p.badge === 'hot') badgeHtml = '<div class="badge badge-hot">🔥 HOT</div>';
-                else if (p.badge === 'new') badgeHtml = '<div class="badge badge-new">🆕 NEW</div>';
-                else if (p.badge === 'bestseller') badgeHtml = '<div class="badge badge-bestseller">⭐ BEST SELLER</div>';
-                else if (p.badge === 'sale') badgeHtml = '<div class="badge badge-sale">⚡ SALE</div>';
-                let stockLabel = p.stock <= 5 ? `<div class="stock low">⚠️ ONLY ${p.stock} LEFT</div>` : `<div class="stock">📦 ${p.stock} in stock</div>`;
-                let disabled = p.stock <= 0 ? 'disabled' : '';
-                let sold = p.stock <= 0 ? '<div class="badge badge-sold">SOLD OUT</div>' : '';
+            grid.innerHTML = products.map(p => {
+                let stockHtml;
+                if (p.stock <= 0) stockHtml = '<div class="stock">SOLD OUT</div>';
+                else if (p.stock <= 5) stockHtml = `<div class="stock">⚠️ Only ${p.stock} left!</div>`;
+                else stockHtml = `<div class="stock ok">✔ In stock</div>`;
+                const wasHtml = p.was ? `<span class="was-price">£${p.was.toFixed(2)}</span>` : '';
+                const imgStyle = p.img
+                    ? `background-image:url('${p.img}'); background-size:cover; background-position:center;`
+                    : 'background:#F7F7F7;';
+                const badge = p.stock <= 0 ? '<div class="badge badge-sold">SOLD OUT</div>' : badgeHtml(p);
+                const disabled = p.stock <= 0 ? 'disabled' : '';
                 return `<div class="product-card">
-                    ${badgeHtml}${sold}
-                    <div class="img" style="${p.img ? `background-image:url('${p.img}'); background-size:cover; background-position:center; font-size:4rem;` : 'background: linear-gradient(135deg, #F5F5F5, #E8E8E8); display:flex; align-items:center; justify-content:center; font-size:3rem; color:#999;'}">${p.img ? '' : '🎄'}</div>
+                    ${badge}
+                    <div class="img" style="${imgStyle}">${p.img ? '' : '🎄'}</div>
                     <div class="info">
                         <div class="name">${p.name}</div>
                         <div class="stars">⭐⭐⭐⭐⭐</div>
                         <div class="price-row">
                             <span class="price">£${p.price.toFixed(2)}</span>
+                            ${wasHtml}
                             <span class="deal-badge">🆓 Buy 3, Free</span>
                         </div>
-                        ${stockLabel}
-                        <button class="add-btn" onclick="addToCart(${p.id},'${p.name.replace("'","\\'")}',${p.price})" ${disabled}>🛒 Add to Cart</button>
+                        ${stockHtml}
+                        <button class="add-btn" onclick="addToCart(${p.id},'${p.name.replace(/'/g,"\\'")}',${p.price})" ${disabled}>🛒 Add to Cart</button>
                     </div>
                 </div>`;
             }).join('');
@@ -680,22 +590,23 @@
         function addToCart(id, name, price) {
             cart.push({id, name, price});
             updateCartDisplay();
-            alert('✅ ' + name + ' added to cart!\n🛒 Buy 3 and the cheapest is FREE!');
+            alert('✅ ' + name + ' added!\n🎁 Buy 3 and the cheapest is FREE.');
         }
 
-        // ===== COUNTDOWN TIMER =====
+        // ===== COUNTDOWN =====
         function updateTimer() {
             const deadline = new Date('2026-12-15T23:59:59').getTime();
             const now = new Date().getTime();
             const diff = Math.max(0, deadline - now);
-            const d = Math.floor(diff / 86400000);
-            const h = Math.floor((diff % 86400000) / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
-            ['days','hours','mins','secs'].forEach((id,i)=>{
-                let el = document.getElementById(id);
-                if(!el) return;
-                el.textContent = [String(d).padStart(2,'0'), String(h).padStart(2,'0'), String(m).padStart(2,'0'), String(s).padStart(2,'0')][i];
+            const vals = [
+                String(Math.floor(diff / 86400000)).padStart(2,'0'),
+                String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0'),
+                String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0'),
+                String(Math.floor((diff % 60000) / 1000)).padStart(2,'0')
+            ];
+            ['days','hours','mins','secs'].forEach((id,i) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = vals[i];
             });
         }
         setInterval(updateTimer, 1000);
@@ -703,63 +614,40 @@
 
         // ===== WHEEL =====
         let wheelSpinning = false;
-        function openWheel() {
-            document.getElementById('wheelOverlay').classList.add('show');
-            document.getElementById('wheelResult').textContent = '';
-            document.getElementById('wheel').style.transform = 'rotate(0deg)';
-        }
-        function closeWheel() {
-            document.getElementById('wheelOverlay').classList.remove('show');
-        }
+        function openWheel() { document.getElementById('wheelOverlay').classList.add('show'); document.getElementById('wheelResult').textContent = ''; document.getElementById('wheel').style.transform = 'rotate(0deg)'; }
+        function closeWheel() { document.getElementById('wheelOverlay').classList.remove('show'); }
         function spinWheel() {
             if (wheelSpinning) return;
             wheelSpinning = true;
             const prizes = [
                 { label: '🏆 JACKPOT! 3 for 1! 🏆', chance: 0.05 },
                 { label: '🎉 2 Cheapest FREE! 🎉', chance: 0.10 },
-                { label: '👍 Cheapest FREE (standard deal)', chance: 0.50 },
-                { label: '💀 Bad luck! Pay for all 3', chance: 0.35 }
+                { label: '👍 Cheapest FREE', chance: 0.50 },
+                { label: '💀 Bad luck — pay for all 3', chance: 0.35 }
             ];
-            const r = Math.random();
-            let cumulative = 0, won = prizes[3];
-            for (let p of prizes) {
-                cumulative += p.chance;
-                if (r < cumulative) { won = p; break; }
-            }
-            const deg = 360 * 3 + Math.random() * 360;
-            document.getElementById('wheel').style.transform = 'rotate(' + deg + 'deg)';
-            setTimeout(() => {
-                document.getElementById('wheelResult').textContent = won.label;
-                wheelSpinning = false;
-            }, 3000);
+            let r = Math.random(), cum = 0, won = prizes[3];
+            for (const p of prizes) { cum += p.chance; if (r < cum) { won = p; break; } }
+            document.getElementById('wheel').style.transform = 'rotate(' + (360*3 + Math.random()*360) + 'deg)';
+            setTimeout(() => { document.getElementById('wheelResult').textContent = won.label; wheelSpinning = false; }, 3000);
         }
-        // close wheel on overlay click
-        document.getElementById('wheelOverlay')?.addEventListener('click', function(e){
-            if(e.target === this) closeWheel();
-        });
+        document.getElementById('wheelOverlay')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeWheel(); });
 
-        // ===== SCROLL HELPERS =====
-        function scrollToSection(id) {
-            let el = document.getElementById(id);
-            if (el) el.scrollIntoView({behavior:'smooth'});
-        }
-        function scrollToTop() {
-            window.scrollTo({top:0,behavior:'smooth'});
-        }
+        // ===== HELPERS =====
+        function scrollToSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({behavior:'smooth'}); }
+        function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
 
         // ===== SNOW =====
         function initSnow() {
             const container = document.getElementById('snow');
             if (!container) return;
             const flakes = ['❄️','❄','❄️','❄','⛄'];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 40; i++) {
                 const f = document.createElement('div');
                 f.className = 'snowflake';
                 f.style.left = Math.random() * 100 + '%';
                 f.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
                 f.style.animationDuration = (8 + Math.random() * 15) + 's';
                 f.style.animationDelay = (Math.random() * 10) + 's';
-                f.style.opacity = 0.3 + Math.random() * 0.5;
                 f.textContent = flakes[Math.floor(Math.random() * flakes.length)];
                 container.appendChild(f);
             }
@@ -769,18 +657,6 @@
         // ===== INIT =====
         renderProducts();
         updateCartDisplay();
-
-        // ===== OVERRIDE CSS FOR WHEEL =====
-        // Inject conic-gradient fallback for wheel as solid BG (browsers may not support)
-        document.querySelector('.wheel')?.style.setProperty('background', 'conic-gradient(#E53935 0deg, #FFD700 60deg, #2E7D32 120deg, #E53935 180deg, #FFD700 240deg, #2E7D32 300deg)');
-        // If conic-gradient not supported, use solid gold
-        setTimeout(() => {
-            let w = document.querySelector('.wheel');
-            if (w && getComputedStyle(w).background === 'none') {
-                w.style.background = 'conic-gradient(gold, gold, gold, gold, gold, gold)';
-                w.style.backgroundColor = '#FFD700';
-            }
-        }, 100);
     </script>
 </body>
 </html>
